@@ -97,19 +97,18 @@ PIANO.addEventListener('mouseup', stopCorrespondOver)
 
 
 const audio = document.querySelector('audio');
-const button = document.querySelector('.piano-key');
-function playAudio() {
+function playAudio(src) {
+  audio.src = src; 
   audio.currentTime = 0;
   audio.play();
 }
-button.addEventListener('mousedown', playAudio)
-/
 
-piano.addEventListener('mousedown', (event) => {
+
+window.addEventListener('mousedown', (event) => {
     if(event.target.classList.contains('piano-key')) {
       const note = event.target.dataset.note;
-      const src = `assets/audio/${note}.mp3`;
-      playAudio(src);
+      /*const src = `assets/audio/${note}.mp3`;*/
+      playAudio(`assets/audio/${note}.mp3`);
     }   
   }); 
  </script>
